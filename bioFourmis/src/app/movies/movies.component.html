@@ -1,0 +1,22 @@
+<button class="btnStyle moveLeft btn-w-md ml-3" *ngIf="!showFilter"  (click)="openFilter()">Filter</button>
+<br>
+<form *ngIf="showFilter" [formGroup]="filterMovies">
+    <input class="inputStyle moveLeft" type="text" placeholder="Enter Movie Name" formControlName="movieName" [(ngModel)]="movieName" >
+    <div>
+      <input class="inputStyle moveLeft" type="text" placeholder="Enter Year" formControlName="year" [(ngModel)]="year">
+      <input class="inputStyle moveLeft" type="text" placeholder="Enter Genres" formControlName="genres" [(ngModel)]="genres">
+    </div>
+    <button class="btnStyle moveLeft btn-w-md ml-3" *ngIf="showFilter"  (click)="openFilter()">Close Filter</button>
+    </form>
+    <!-- <div *ngFor="let movies of movieList | filterValue : movieName : year : genres" >
+      <figure></figure>
+    </div> -->
+    <!-- {{moviesFullList}} -->
+    <mat-card *ngFor="let movies of dataFromJson.movies | filterValue : movieName : year : genres" class="cardStyle">
+      <figure (click)="navigateToMovieDtls(movies.id)">
+        <img src="{{movies.posterUrl}}" alt="{{movies.title}}">
+        <figcaption>{{movies.genres}}</figcaption>
+      </figure>
+      <strong>{{movies.title}}</strong>
+      <div>{{movies.year}}</div>
+    </mat-card>

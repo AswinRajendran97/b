@@ -1,0 +1,12 @@
+<mat-card *ngFor="let movies of moviesSelected" >
+    <figure>
+      <img src="{{movies.posterUrl}}" alt="{{movies.title}}">
+      <figcaption>{{movies.genres}}</figcaption>
+    </figure>
+    <strong>{{movies.title}}</strong>
+    <div>{{movies.year}}</div>
+    <div>{{movies.runtime}}</div>
+    <div>{{movies.director}}</div>
+    <div>{{movies.actors}}</div>
+    <div>{{movies.plot}}</div>
+  </mat-card>
